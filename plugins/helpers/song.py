@@ -46,8 +46,9 @@ def song(client, message):
         thumbnail = results[0]["thumbnails"][0]
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
-        open(thumb_name, 'wb').write(thumb.content)
-
+        img = open(thumb_name, 'wb')
+        img.write(thumb.content)
+        img.close()
 
         performer = f"[Autofilter - Cinemathattakam]" 
         duration = results[0]["duration"]
@@ -144,7 +145,7 @@ async def vsong(client, message: Message):
 """
     await client.send_video(
         message.chat.id,
-        video=open(file_stark, "rb"),
+        video=file_stark,
         duration=int(ytdl_data["duration"]),
         file_name=str(ytdl_data["title"]),
         thumb=sedlyf,
