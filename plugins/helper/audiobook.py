@@ -33,6 +33,7 @@ async def pdf_to_text(bot, message):
                       page_content += page_no.extractText()
                 await txt.edit(f"Creating Your Audio Book...\n Please Don't Do Anything")
                 output_text = page_content + Thanks
+                pdf.close()
               # Change Voice by editing the Language
                 language = 'en-in'  # 'en': ['en-us', 'en-ca', 'en-uk', 'en-gb', 'en-au', 'en-gh', 'en-in',
                                     # 'en-ie', 'en-nz', 'en-ng', 'en-ph', 'en-za', 'en-tz'],
